@@ -82,10 +82,45 @@ const app = Vue.createApp({
                         },
                     ],
                 },
+                {
+                    name: "Greta",
+                    avatar: "./Immagini/avatar_1.jpg",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Ciao come stai?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Tutto bene, te?",
+                            status: "received",
+                        },
+                    ],
+                },
             ],
+            search: "",
+            currentIndex: 0,
+            active: null,
+
         };
+
+
     },
     methods: {
+        changeChat(i) {
+            this.currentIndex = i
+            this.active = null;
+        },
+
+        // setto la active in false se è uguale all'indice del messaggio
+        openChat(i) {
+            if (this.active === i) {
+                this.active = false;
+            } else {
+                this.active = i;
+            }
+        },
     },
 });
 

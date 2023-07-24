@@ -29,87 +29,135 @@
                 <div class="row flex-nowrap" style="height: 100%;">
 
                     <!-- sidebar -->
+
                     <div class="side-bar">
-                        <div class="row" style="flex-direction: column;">
-
-                            <div class="header-side-bar">
-                                <div class="img-container">
-                                    <img src="Immagini/avatar_io.jpg" alt="...">
-                                </div>
-                                <div class="avatar-name text-dark">
-                                    Sofia
-                                </div>
-                                <div class="d-flex icon-side">
-                                    <button class="btn-link">
-                                        <i class="fa-solid fa-circle-notch"></i>
-                                    </button>
-                                    <button class="btn-link">
-                                        <i class="fa-solid fa-message"></i>
-                                    </button>
-                                    <button class="btn-link">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                </div>
+                        <div class="header-side-bar">
+                            <div class="img-container">
+                                <img src="Immagini/avatar_io.jpg" alt="...">
                             </div>
-
-                            <div class="icon-side-bar d-flex align-items-center" style="gap: 5px;">
-                                <div class="col-3  d-flex align-items-center justify-content-center ">
-                                    <i class="fa-solid fa-bell-slash icon-blue"></i>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        Ricevi notifiche di nuovi messaggi
-                                    </div>
-                                    <div class="small">
-                                        <a href="#">
-                                            Attiva notifiche desktop
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="avatar-name text-dark">
+                                Sofia
                             </div>
+                            <div class="d-flex icon-side">
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                </button>
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-message"></i>
+                                </button>
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                            <div class="body-side-bar">
-                                <div class="row">
-
-                                    <div class="input-group flex-nowrap py-2" style="background-color:#fafafa;">
-                                        <span class="input-group-text" id="addon-wrapping">
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </span>
-                                        <input type="text" class="form-control"
-                                            placeholder="Cerca o inizia una nuova chat" aria-label="Username"
-                                            aria-describedby="addon-wrapping">
-                                    </div>
-
-                                    <ul class="contact-list py-2 px-0 bg-light">
-                                        <div class="bg-hover">
-                                            <li class=" d-flex align-items-center justify-content-center gap-2 p-2 "
-                                                v-for="(singleContact, i) in contatti">
-
-                                                <div class="col-3  " style="aspect-ratio: 1/1;">
-                                                    <img :src="singleContact.avatar" alt=""
-                                                        style="width: 100%; border-radius: 50%;">
-                                                </div>
-                                                <div class="col-7">
-                                                    <h6>
-                                                        {{singleContact.name}}
-                                                    </h6>
-                                                    <div class="small">
-                                                        Ultimo messaggio inviato
-                                                    </div>
-                                                </div>
-                                                <div class="small">
-                                                    12.00
-                                                </div>
-                                            </li>
-                                        </div>
-                                    </ul>
+                        <div class="icon-side-bar d-flex align-items-center" style="gap: 5px;">
+                            <div class="col-3  d-flex align-items-center justify-content-center ">
+                                <i class="fa-solid fa-bell-slash icon-blue"></i>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    Ricevi notifiche di nuovi messaggi
+                                </div>
+                                <div class="small">
+                                    <a href="#">
+                                        Attiva notifiche desktop
+                                    </a>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="body-side-bar">
+                            <div class="row m-0" style="width: 100%;">
+
+                                <div class="input-group flex-nowrap py-2" style="background-color:#fafafa;">
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                                        aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+
+                                <ul class="contact-list py-2 px-0 bg-light mb-0">
+                                    <div class="bg-hover">
+                                        <li class=" d-flex align-items-center justify-content-center gap-2 p-2 "
+                                            v-for="(singleContact, i) in contatti" @click="changeChat(i)"
+                                            :class="{'selected-contact': currentIndex === i}">
+
+                                            <div class="col-3  " style="aspect-ratio: 1/1;">
+                                                <img :src="singleContact.avatar" alt=""
+                                                    style="width: 100%; border-radius: 50%;">
+                                            </div>
+                                            <div class="col-7">
+                                                <h6>
+                                                    {{singleContact.name}}
+                                                </h6>
+                                                <div class="small">
+                                                    Ultimo messaggio inviato
+                                                </div>
+                                            </div>
+                                            <div class="small">
+                                                12.00
+                                            </div>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
 
                     <!-- main app -->
-                    <div class="main-app-body">
+                    <div class="main-app-body d-flex flex-column p-0">
+
+                        <div class="header-app d-flex align-items-center">
+                            <div class="img" style="max-width: 10.5%; "
+                            v-for="(image, i) in contatti[currentIndex].avatar">
+                                <img :src="image.avatar" alt=".." style="width: 100%; border-radius: 50%;">
+                            </div>
+                            <div class="avatar-name text-dark flex-grow-1">
+                                Sofia
+                            </div>
+                            <div class="d-flex icon-side">
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-paperclip"></i> </button>
+                                <button class="btn-link">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="body-app flex-grow-1" style="background-image: url(./Immagini/mine.jpg);">
+
+                            <div v-for="(message, i) in contatti[currentIndex].messages" 
+                            class="messaggio-container">
+
+                                <div class="mx-5 my-3 py-2 px-3" :class="message.status">
+                                    <div>
+                                        <div>{{message.message}}</div>
+                                        <div class="font-small">{{message.date}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="footer-app d-flex gap-3 p-2 align-items-center ">
+                            <button class="btn-link border-0">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </button>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                                    aria-describedby="basic-addon1" v-model="search">
+                            </div>
+                            <button class="btn-link border-0">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                        </div>
 
                     </div>
                 </div>
