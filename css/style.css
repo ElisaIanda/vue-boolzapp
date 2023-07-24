@@ -1,0 +1,81 @@
+.bg-app {
+    height: 100vh;
+    width: 100%;
+    background: rgb(0, 150, 136);
+    background: linear-gradient(180deg, rgba(0, 150, 136, 1) 20%, rgba(218, 219, 212, 1) 20%);
+}
+
+.app-container {
+    height: calc(100vh - 3rem);
+    border: 1px solid black;
+}
+
+.side-bar {
+    border: 1px solid red;
+    width: 30%;
+    overflow: auto;
+    flex-shrink: 0;
+}
+
+.main-app-body {
+    border: 1px solid blue;
+    width: 70%;
+}
+
+.header-side-bar,
+.icon-side-bar,
+.body-side-bar {
+    border: 1px solid;
+}
+
+.header-side-bar {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #eaeaea;
+    color: #b1b1b1;
+}
+
+.body-side-bar {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.img-container {
+    width: 25%;
+    aspect-ratio: 1/1;
+}
+
+.img-container>img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.avatar-name {
+    flex-grow: 1;
+}
+
+.icon-side>button {
+    border: none;
+    background-color: #eaeaea;
+}
+
+.icon-side-bar {
+    background-color: #8edafc;
+}
+
+.icon-blue{
+    background-color: #eaeaea;
+    color: #8edafc;
+    border-radius: 50%;
+    padding: 15px;
+    aspect-ratio: 1/1;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.bg-hover :hover{
+    background-color: #e9ebeb;
+}
