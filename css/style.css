@@ -80,6 +80,45 @@
 
 .selected-contact {
     background-color: #cdcfcf;
+<<<<<<< HEAD
+}
+
+.main-app-body> * {
+    border: 1px solid;
+}
+
+.header-app {
+    background-color: #eaeaea;
+    gap: 5px;
+}
+
+.body-app {
+    overflow: auto;
+}
+
+.footer-app {
+    background-color: #f3eeea;
+}
+
+.messaggio-container{
+    width: 100%;
+}
+
+.sent{
+    background-color: #d5f9ba;
+    display: flex;
+    justify-content: end;
+}
+
+.received{
+    background-color: #ffffff;
+}
+
+.font-small{
+    font-size: 9px;
+    text-align: end;
+=======
+>>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
 }
 
 .main-app-body> * {
