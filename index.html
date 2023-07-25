@@ -75,20 +75,14 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </span>
                                     <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-<<<<<<< HEAD
                                         aria-label="Username" aria-describedby="addon-wrapping" 
                                         v-model="search">
-=======
-                                        aria-label="Username" aria-describedby="addon-wrapping">
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                                 </div>
 
                                 <ul class="contact-list py-2 px-0 bg-light mb-0">
                                     <div class="bg-hover">
                                         <li class=" d-flex align-items-center justify-content-center gap-2 p-2 "
                                             v-for="(singleContact, i) in contatti" @click="changeChat(i)"
-<<<<<<< HEAD
-                                            v-if="contact.name.toLowerCase().includes(search)"
                                             :class=" (currentIndex === i ? 'selected-contact' : '')">
 
                                             <div class="contact-search"
@@ -97,12 +91,6 @@
 
                                             <div class="col-3  " style="aspect-ratio: 1/1;">
                                                 <img :src="`./immagini/avatar${singleContact.avatar}.jpg`" alt=""
-=======
-                                            :class="{'selected-contact': currentIndex === i}">
-
-                                            <div class="col-3  " style="aspect-ratio: 1/1;">
-                                                <img :src="singleContact.avatar" alt=""
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                                                     style="width: 100%; border-radius: 50%;">
                                             </div>
                                             <div class="col-7">
@@ -127,7 +115,6 @@
                     <!-- main app -->
                     <div class="main-app-body d-flex flex-column p-0">
 
-<<<<<<< HEAD
                         <div class="header-app align-items-center" :class="(currentIndex === i ? 'd-flex' : '')"
                             v-for="(singleContact, i) in contatti" v-show="(currentIndex === i)">
                             <div class="img" style="max-width: 10.5%; ">
@@ -140,16 +127,6 @@
                                 </div>
                             </div>
                             
-=======
-                        <div class="header-app d-flex align-items-center">
-                            <div class="img" style="max-width: 10.5%; "
-                            v-for="(image, i) in contatti[currentIndex].avatar">
-                                <img :src="image.avatar" alt=".." style="width: 100%; border-radius: 50%;">
-                            </div>
-                            <div class="avatar-name text-dark flex-grow-1">
-                                Sofia
-                            </div>
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                             <div class="d-flex icon-side">
                                 <button class="btn-link">
                                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -165,7 +142,6 @@
 
                         <div class="body-app flex-grow-1" style="background-image: url(./Immagini/mine.jpg);">
 
-<<<<<<< HEAD
                             <div class="messaggio-container"
                             v-for="(singleContact, i) in contatti[currentIndex].messages">
 
@@ -174,15 +150,6 @@
                                         <div>{{singleContact.message}}</div>
                                         <div class="font-small">{{singleContact.date}}</div>
                                         <i class="fas fa-chevron-down" ></i>
-=======
-                            <div v-for="(message, i) in contatti[currentIndex].messages" 
-                            class="messaggio-container">
-
-                                <div class="mx-5 my-3 py-2 px-3" :class="message.status">
-                                    <div>
-                                        <div>{{message.message}}</div>
-                                        <div class="font-small">{{message.date}}</div>
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                                     </div>
                                 </div>
                             </div>
@@ -193,17 +160,11 @@
                             <button class="btn-link border-0">
                                 <i class="fa-regular fa-face-smile"></i>
                             </button>
-<<<<<<< HEAD
                             <div class="input-group"
                             @keyup.enter="invioMessaggio(i)">
                                 <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Username"
                                     aria-describedby="basic-addon1" 
                                     v-model="newMessage.message">
-=======
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                    aria-describedby="basic-addon1" v-model="search">
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                             </div>
                             <button class="btn-link border-0">
                                 <i class="fa-solid fa-microphone"></i>
