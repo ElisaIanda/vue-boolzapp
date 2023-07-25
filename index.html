@@ -83,7 +83,12 @@
                                     <div class="bg-hover">
                                         <li class=" d-flex align-items-center justify-content-center gap-2 p-2 "
                                             v-for="(singleContact, i) in contatti" @click="changeChat(i)"
+                                            v-if="contact.name.toLowerCase().includes(search)"
                                             :class=" (currentIndex === i ? 'selected-contact' : '')">
+
+                                            <div class="contact-search"
+                                            >
+                                            </div>
 
                                             <div class="col-3  " style="aspect-ratio: 1/1;">
                                                 <img :src="`./immagini/avatar${singleContact.avatar}.jpg`" alt=""
@@ -145,6 +150,7 @@
                                     <div>
                                         <div>{{singleContact.message}}</div>
                                         <div class="font-small">{{singleContact.date}}</div>
+                                        <i class="fas fa-chevron-down" ></i>
                                     </div>
                                 </div>
                             </div>
