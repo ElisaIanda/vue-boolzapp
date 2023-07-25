@@ -5,7 +5,7 @@ const app = Vue.createApp({
             contatti: [
                 {
                     name: "Michele",
-                    avatar: "./Immagini/avatar_1.jpg",
+                    avatar: "_1",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -26,7 +26,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Fabio",
-                    avatar: "./Immagini/avatar_2.jpg",
+                    avatar: "_2",
                     messages: [
                         {
                             date: "20/03/2020 16:30:00",
@@ -47,7 +47,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Samuele",
-                    avatar: "./Immagini/avatar_3.jpg",
+                    avatar: "_3",
                     messages: [
                         {
                             date: "28/03/2020 10:10:40",
@@ -68,7 +68,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Luisa",
-                    avatar: "./Immagini/avatar_4.jpg",
+                    avatar: "_4",
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -82,10 +82,73 @@ const app = Vue.createApp({
                         },
                     ],
                 },
+                {
+                    name: "Greta",
+                    avatar: "_1",
+                    messages: [
+                        {
+                            date: "10/01/2020 15:30:55",
+                            message: "Ciao come stai?",
+                            status: "sent",
+                        },
+                        {
+                            date: "10/01/2020 15:50:00",
+                            message: "Tutto bene, te?",
+                            status: "received",
+                        },
+                    ],
+                },
+            ],
+
+            currentIndex: 0,
+            search: " ",
+
+            newMessage: {
+                date: "",
+                message: "",
+                status: "sent"
+            },
+
+            risposta: [
+
+                "ciao",
+                "tutto bene?",
+                "come stai?",
+                "possiamo parlare?",
+                "ok!"
             ],
         };
+
+
     },
     methods: {
+        changeChat(i) {
+            this.currentIndex = i;
+        },
+
+        invioMessaggio(i) {
+            //   Pusho il nuovo messaggio
+            this.contatti[this.currentIndex].messages.push({ date: this.currentDate(), message: this.newMessage.message, status: "sent" });
+            this.newMessage.message = " ";
+            //   Richiamo la funzione di risposta al messaggio 
+            this.rispostaMessagio(i)
+        },
+
+        rispostaMessagio() {
+            setTimeout(() => {
+                //   Creo una risposta random dall'array di risposte esistenti
+                let randomRisposta = Math.floor(Math.random() * this.risposta.length);
+                //   Pusho il nuovo messaggio
+                this.contatti[this.currentIndex].messages.push({ date: this.currentDate(), message: this.risposta[randomRisposta], status: "received" });
+            }, 1000);
+        },
+
+        // Creo funzione per ripostarere la data e l'ora nel messaggio
+        currentDate() {
+            const current = new Date();
+            const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
+            return date;
+        },
     },
 });
 
