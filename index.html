@@ -31,27 +31,27 @@
                     <!-- sidebar -->
 
                     <div class="side-bar">
-                        <div class="header-side-bar">
+                        <div class="header-side-bar p-2">
                             <div class="img-container">
-                                <img src="Immagini/avatar_io.jpg" alt="...">
+                                <img src="./immagini/avatar_io.jpg" alt="...">
                             </div>
                             <div class="avatar-name text-dark">
                                 Sofia
                             </div>
                             <div class="d-flex icon-side">
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-circle-notch"></i>
+                                    <i class="color fa-solid fa-circle-notch"></i>
                                 </button>
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-message"></i>
+                                    <i class=" color fa-solid fa-message"></i>
                                 </button>
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class=" color fa-solid fa-ellipsis-vertical"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="icon-side-bar d-flex align-items-center" style="gap: 5px;">
+                        <div class="icon-side-bar d-flex align-items-center p-2" style="gap: 5px;">
                             <div class="col-3  d-flex align-items-center justify-content-center ">
                                 <i class="fa-solid fa-bell-slash icon-blue"></i>
                             </div>
@@ -82,12 +82,9 @@
                                 <ul class="contact-list py-2 px-0 bg-light mb-0">
                                     <div class="bg-hover">
                                         <li class=" d-flex align-items-center justify-content-center gap-2 p-2 "
-                                            v-for="(singleContact, i) in contatti" @click="changeChat(i)"
-                                            :class=" (currentIndex === i ? 'selected-contact' : '')">
-
-                                            <div class="contact-search"
+                                            v-for="(singleContact, i) in contactSearch(i)" @click="changeChat(i)"
+                                            :class=" (currentIndex === i ? 'selected-contact' : '')"
                                             >
-                                            </div>
 
                                             <div class="col-3  " style="aspect-ratio: 1/1;">
                                                 <img :src="`./immagini/avatar${singleContact.avatar}.jpg`" alt=""
@@ -117,7 +114,7 @@
 
                         <div class="header-app align-items-center" :class="(currentIndex === i ? 'd-flex' : '')"
                             v-for="(singleContact, i) in contatti" v-show="(currentIndex === i)">
-                            <div class="img" style="max-width: 10.5%; ">
+                            <div class="img" style="max-width: 10%; ">
                                 <img :src="`./immagini/avatar${singleContact.avatar}.jpg`" alt=".." style="width: 100%; border-radius: 50%;">
                             </div>
                             <div class="avatar-name text-dark flex-grow-1">
@@ -129,18 +126,18 @@
                             
                             <div class="d-flex icon-side">
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class=" color fa-solid fa-magnifying-glass"></i>
                                 </button>
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-paperclip"></i> </button>
+                                    <i class=" color fa-solid fa-paperclip"></i> </button>
                                 <button class="btn-link">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    <i class=" color fa-solid fa-ellipsis-vertical"></i>
                                 </button>
                             </div>
 
                         </div>
 
-                        <div class="body-app flex-grow-1" style="background-image: url(./Immagini/mine.jpg);">
+                        <div class="body-app flex-grow-1" style="background-image: url(./immagini/mine.jpg);">
 
                             <div class="messaggio-container"
                             v-for="(singleContact, i) in contatti[currentIndex].messages">
@@ -157,8 +154,8 @@
                         </div>
 
                         <div class="footer-app d-flex gap-3 p-2 align-items-center ">
-                            <button class="btn-link border-0">
-                                <i class="fa-regular fa-face-smile"></i>
+                            <button class="btn-link border-0" style="background-color: #f3eeea;">
+                                <i class="fa-regular fa-face-smile bg-transparent"></i>
                             </button>
                             <div class="input-group"
                             @keyup.enter="invioMessaggio(i)">
@@ -166,8 +163,8 @@
                                     aria-describedby="basic-addon1" 
                                     v-model="newMessage.message">
                             </div>
-                            <button class="btn-link border-0">
-                                <i class="fa-solid fa-microphone"></i>
+                            <button class="btn-link border-0" style="background-color: #f3eeea;">
+                                <i class="fa-solid fa-microphone bg-transparent"></i>
                             </button>
                         </div>
 

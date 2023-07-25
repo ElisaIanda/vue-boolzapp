@@ -84,11 +84,7 @@ const app = Vue.createApp({
                 },
                 {
                     name: "Greta",
-<<<<<<< HEAD
                     avatar: "_1",
-=======
-                    avatar: "./Immagini/avatar_1.jpg",
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
                     messages: [
                         {
                             date: "10/01/2020 15:30:55",
@@ -102,7 +98,6 @@ const app = Vue.createApp({
                         },
                     ],
                 },
-<<<<<<< HEAD
             ],
 
             currentIndex: 0,
@@ -121,20 +116,22 @@ const app = Vue.createApp({
                 "come stai?",
                 "possiamo parlare?",
                 "ok!"
-=======
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
             ],
             search: "",
             currentIndex: 0,
-            active: null,
+
+
+            
+            
+            
 
         };
 
-
     },
+
+
     methods: {
         changeChat(i) {
-<<<<<<< HEAD
             this.currentIndex = i;
         },
 
@@ -160,20 +157,14 @@ const app = Vue.createApp({
             const current = new Date();
             const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
             return date;
-=======
-            this.currentIndex = i
-            this.active = null;
         },
 
-        // setto la active in false se è uguale all'indice del messaggio
-        openChat(i) {
-            if (this.active === i) {
-                this.active = false;
-            } else {
-                this.active = i;
-            }
->>>>>>> bd6d2eb27630e63995b192186c6073674616a06c
-        },
+        contactSearch(){
+            return this.contatti.filter((contatti,i) => contatti.name.toLowerCase().includes(this.search.toLowerCase()));
+        }
+
+
+        
     },
 });
 
