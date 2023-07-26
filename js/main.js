@@ -121,10 +121,6 @@ const app = Vue.createApp({
             currentIndex: 0,
 
 
-            
-            
-            
-
         };
 
     },
@@ -155,8 +151,10 @@ const app = Vue.createApp({
         // Creo funzione per ripostarere la data e l'ora nel messaggio
         currentDate() {
             const current = new Date();
-            const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
-            return date;
+            const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+            const time = `${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`
+            const currentdata = ` ${date} ${time}`
+            return currentdata;
         },
 
         // Filtro tutti i contatti e li confronto con quello scritto nel Search, trasformo tutto il LoweCase
@@ -164,13 +162,10 @@ const app = Vue.createApp({
             return this.contatti.filter((contatti) => contatti.name.toLowerCase().includes(this.search.toLowerCase()));
         },
 
-        // Funzione per eliminare un messaggio con splice() modifica il contenuto di un array rimuovendo o sostituendo elementi esistenti 
+        // Funzione per eliminare un messaggio con splice() modifica il contenuto di un array rimuovendo o sostituendo elementi  
         cancellaMessaggio(i) {
             this.contatti[this.currentIndex].messages.splice(i, 1)
-        },
-
-
-        
+        },      
     },
 });
 
