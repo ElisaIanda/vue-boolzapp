@@ -106,7 +106,7 @@ const app = Vue.createApp({
             newMessage: {
                 date: "",
                 message: "",
-                status: "sent"
+                
             },
 
             risposta: [
@@ -159,9 +159,15 @@ const app = Vue.createApp({
             return date;
         },
 
+        // Filtro tutti i contatti e li confronto con quello scritto nel Search, trasformo tutto il LoweCase
         contactSearch(){
-            return this.contatti.filter((contatti,i) => contatti.name.toLowerCase().includes(this.search.toLowerCase()));
-        }
+            return this.contatti.filter((contatti) => contatti.name.toLowerCase().includes(this.search.toLowerCase()));
+        },
+
+        // Funzione per eliminare un messaggio con splice() modifica il contenuto di un array rimuovendo o sostituendo elementi esistenti 
+        cancellaMessaggio(i) {
+            this.contatti[this.currentIndex].messages.splice(i, 1)
+        },
 
 
         

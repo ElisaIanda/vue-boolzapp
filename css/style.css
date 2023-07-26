@@ -106,38 +106,6 @@
     text-align: end;
 }
 
-.header-app {
-    background-color: #eaeaea;
-    gap: 5px;
-}
-
-.body-app {
-    overflow: auto;
-}
-
-.footer-app {
-    background-color: #f3eeea;
-}
-
-.messaggio-container{
-    width: 100%;
-}
-
-.sent{
-    background-color: #d5f9ba;
-    display: flex;
-    justify-content: end;
-}
-
-.received{
-    background-color: #ffffff;
-}
-
-.font-small{
-    font-size: 9px;
-    text-align: end;
-}
-
 .color{
     color: #b1b1b1;
 }
